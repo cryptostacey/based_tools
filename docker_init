@@ -1,0 +1,18 @@
+https://github.com/eth2-educators/eth2-docker
+install docker: 
+https://hub.docker.com/editions/community/docker-ce-desktop-mac/
+docker exec -it /bin/bash
+cd ~ && git clone 
+https://github.com/eth2-educators/eth2-docker.git
+ && cd eth2-docker
+cp default.env .env
+cat .env
+COMPOSE_FILE=lh-base.yml:geth.yml:lh-grafana.yml sudo docker-compose build
+sudo docker-compose run --rm deposit-cli
+sudo docker-compose run --rm validator-import
+sudo docker-compose up -d eth2
+sudo docker-compose logs -f beacon
+pbpaste
+echo $(pbpaste) > file.txt
+puts ur clipboard on a file
+sudo docker-compose logs -f beacon
